@@ -9,8 +9,8 @@ void task1(Array *arr)
     for (size_t i = 0; i < arr->size(); i++)
         sum += arr->get(i);
     double average = sum / double(arr->size());
-    double dif(sum);
-    int closest = 0;
+    double dif(DBL_MAX);
+    int closest = arr->get(0);
     for (size_t i = 0; i < arr->size(); i++) {
         double tmp = std::abs(average - arr->get(i));
         if (dif > tmp) {

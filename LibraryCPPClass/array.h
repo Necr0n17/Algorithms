@@ -30,6 +30,8 @@ public:
     // returns array size
     size_t size() const;
 
+    void copy(const Array& a);
+
 private:
     size_t len;
     Data* contents;

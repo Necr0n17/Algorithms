@@ -9,18 +9,14 @@ Array::Array(size_t size)
 
 Array::Array(const Array &a)
 {
-    contents = new Data[a.len];
-    for (size_t i = 0; i < a.len; i++)
-        contents[i] = a.contents[i];
+    copy(a);
 }
 
 Array &Array::operator=(const Array &a)
 {
     if (this != &a) {
         delete[] contents;
-        contents = new Data[a.len];
-        for (size_t i = 0; i < a.len; i++)
-            contents[i] = a.contents[i];
+        copy(a);
     }
     return *this;
 }
@@ -43,6 +39,12 @@ void Array::set(size_t index, Data value)
 size_t Array::size() const
 {
     return len;
+}
+
+void Array::copy(const Array& a) {
+    contents = new Data[a.len];
+    for (size_t i = 0; i < a.len; i++)
+        contents[i] = a.contents[i];
 }
 
 
